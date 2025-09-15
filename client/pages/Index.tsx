@@ -65,9 +65,27 @@ const mockDiseases: Disease[] = [
 ];
 
 const mockSchemes: Scheme[] = [
-  { id: 1, name: "PM-KISAN", description: "Financial support to farmers", eligibility: "All farmer families", link: "#" },
-  { id: 2, name: "Soil Health Card", description: "Improve soil health", eligibility: "All farmers", link: "#" },
-  { id: 3, name: "Crop Insurance", description: "Protection against crop loss", eligibility: "All farmers", link: "#" },
+  {
+    id: 1,
+    name: "PM-KISAN",
+    description: "Financial support to farmers",
+    eligibility: "All farmer families",
+    link: "#",
+  },
+  {
+    id: 2,
+    name: "Soil Health Card",
+    description: "Improve soil health",
+    eligibility: "All farmers",
+    link: "#",
+  },
+  {
+    id: 3,
+    name: "Crop Insurance",
+    description: "Protection against crop loss",
+    eligibility: "All farmers",
+    link: "#",
+  },
 ];
 
 const availableCrops = [
@@ -87,28 +105,61 @@ const availableCrops = [
 const ApiService = {
   cropRecommendation: {
     getRecommendations: async (location: string, soil: string) =>
-      new Promise<Crop[]>((resolve) => setTimeout(() => resolve(mockCrops), 700)),
+      new Promise<Crop[]>((resolve) =>
+        setTimeout(() => resolve(mockCrops), 700),
+      ),
   },
   diseaseDetection: {
     detect: async (_image: string) =>
-      new Promise<Disease>((resolve) => setTimeout(() => resolve(mockDiseases[0]), 900)),
+      new Promise<Disease>((resolve) =>
+        setTimeout(() => resolve(mockDiseases[0]), 900),
+      ),
   },
   expertFinder: {
     findExperts: async () =>
-      new Promise<{ id: number; name: string; specialization: string; experience: string; contact: string }[]>((resolve) =>
+      new Promise<
+        {
+          id: number;
+          name: string;
+          specialization: string;
+          experience: string;
+          contact: string;
+        }[]
+      >((resolve) =>
         setTimeout(
           () =>
             resolve([
-              { id: 1, name: "Dr. Rajesh Kumar", specialization: "Agronomy", experience: "15 years", contact: "9876543210" },
-              { id: 2, name: "Dr. Priya Singh", specialization: "Plant Pathology", experience: "12 years", contact: "9876543211" },
-              { id: 3, name: "Dr. Amit Sharma", specialization: "Soil Science", experience: "18 years", contact: "9876543212" },
+              {
+                id: 1,
+                name: "Dr. Rajesh Kumar",
+                specialization: "Agronomy",
+                experience: "15 years",
+                contact: "9876543210",
+              },
+              {
+                id: 2,
+                name: "Dr. Priya Singh",
+                specialization: "Plant Pathology",
+                experience: "12 years",
+                contact: "9876543211",
+              },
+              {
+                id: 3,
+                name: "Dr. Amit Sharma",
+                specialization: "Soil Science",
+                experience: "18 years",
+                contact: "9876543212",
+              },
             ]),
           700,
         ),
       ),
   },
   govSchemes: {
-    getSchemes: async () => new Promise<Scheme[]>((resolve) => setTimeout(() => resolve(mockSchemes), 600)),
+    getSchemes: async () =>
+      new Promise<Scheme[]>((resolve) =>
+        setTimeout(() => resolve(mockSchemes), 600),
+      ),
   },
 };
 
@@ -141,16 +192,22 @@ function Hero() {
     <section id="home" className="relative">
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center"
-        style={{ backgroundImage: `linear-gradient(rgba(6,24,6,.55),rgba(6,24,6,.55)), url(${HERO_BG})` }}
+        style={{
+          backgroundImage: `linear-gradient(rgba(6,24,6,.55),rgba(6,24,6,.55)), url(${HERO_BG})`,
+        }}
       />
       <div className="container flex min-h-[70vh] flex-col items-center justify-center py-24 text-center text-primary-foreground">
         <h1 className="max-w-3xl text-balance text-4xl font-extrabold tracking-tight sm:text-5xl">
           Empowering farmers with technology
         </h1>
         <p className="mt-4 max-w-2xl text-pretty text-base text-primary-foreground/90 sm:text-lg">
-          Expert advice, crop recommendations, disease detection, and scheme guidance — all in one place.
+          Expert advice, crop recommendations, disease detection, and scheme
+          guidance — all in one place.
         </p>
-        <div id="get-started" className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <div
+          id="get-started"
+          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+        >
           <Button asChild size="lg">
             <a href="#crop-recommendation">Get started</a>
           </Button>
@@ -169,7 +226,14 @@ function Services() {
       {
         title: "Crop recommendation",
         icon: (
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M12 2c-3 2.5-6 4-10 5 2 7 6 11 10 15 4-4 8-8 10-15-4-1-7-2.5-10-5z" />
           </svg>
         ),
@@ -179,7 +243,14 @@ function Services() {
       {
         title: "Disease detection",
         icon: (
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M20 21v-8M4 21v-8m0 0a8 8 0 0116 0M9 9l6 6" />
           </svg>
         ),
@@ -189,7 +260,14 @@ function Services() {
       {
         title: "Government schemes",
         icon: (
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M3 10h18M5 6h14M7 2h10M6 14h12v6H6z" />
           </svg>
         ),
@@ -202,7 +280,9 @@ function Services() {
 
   return (
     <section id="services" className="container py-16">
-      <h2 className="text-center text-3xl font-bold tracking-tight">Our services</h2>
+      <h2 className="text-center text-3xl font-bold tracking-tight">
+        Our services
+      </h2>
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <a
@@ -235,7 +315,10 @@ function CropRecommendation() {
   async function run() {
     setLoading(true);
     try {
-      const data = await ApiService.cropRecommendation.getRecommendations(location, soil);
+      const data = await ApiService.cropRecommendation.getRecommendations(
+        location,
+        soil,
+      );
       setRecs(data);
     } finally {
       setLoading(false);
@@ -245,13 +328,17 @@ function CropRecommendation() {
   return (
     <section id="crop-recommendation" className="bg-muted/30 py-16">
       <div className="container">
-        <h2 className="text-center text-3xl font-bold tracking-tight">Crop recommendation</h2>
+        <h2 className="text-center text-3xl font-bold tracking-tight">
+          Crop recommendation
+        </h2>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border bg-card p-6 shadow-sm">
             <h3 className="text-lg font-semibold">Provide your farm details</h3>
             <div className="mt-4 grid gap-4">
               <div>
-                <label className="mb-1 block text-sm font-medium">Location</label>
+                <label className="mb-1 block text-sm font-medium">
+                  Location
+                </label>
                 <input
                   className="w-full rounded-md border bg-background px-3 py-2 text-sm"
                   placeholder="City, region"
@@ -260,7 +347,9 @@ function CropRecommendation() {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">Soil type</label>
+                <label className="mb-1 block text-sm font-medium">
+                  Soil type
+                </label>
                 <select
                   className="w-full rounded-md border bg-background px-3 py-2 text-sm"
                   value={soil}
@@ -273,7 +362,11 @@ function CropRecommendation() {
                   <option value="silt">Silt</option>
                 </select>
               </div>
-              <Button className="w-full" onClick={run} disabled={!location || !soil}>
+              <Button
+                className="w-full"
+                onClick={run}
+                disabled={!location || !soil}
+              >
                 Get recommendations
               </Button>
             </div>
@@ -290,7 +383,15 @@ function CropRecommendation() {
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center rounded-xl border bg-card py-12 text-center text-muted-foreground">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mb-2">
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="mb-2"
+                >
                   <path d="M12 2c-3 2.5-6 4-10 5 2 7 6 11 10 15 4-4 8-8 10-15-4-1-7-2.5-10-5z" />
                 </svg>
                 Enter your farm details to get crop recommendations
@@ -322,7 +423,9 @@ function DiseaseDetection() {
   return (
     <section id="disease-detection" className="py-16">
       <div className="container">
-        <h2 className="text-center text-3xl font-bold tracking-tight">Disease detection</h2>
+        <h2 className="text-center text-3xl font-bold tracking-tight">
+          Disease detection
+        </h2>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border bg-card p-6 shadow-sm">
             <h3 className="text-lg font-semibold">Upload crop image</h3>
@@ -340,7 +443,11 @@ function DiseaseDetection() {
                 className="w-full rounded-md border bg-background px-3 py-2 text-sm"
               />
               {image && (
-                <img src={image} alt="Uploaded" className="max-h-72 w-full rounded-lg object-contain" />
+                <img
+                  src={image}
+                  alt="Uploaded"
+                  className="max-h-72 w-full rounded-lg object-contain"
+                />
               )}
               <Button className="w-full" onClick={detect} disabled={!image}>
                 Detect disease
@@ -355,7 +462,15 @@ function DiseaseDetection() {
               <DiseaseCard disease={result} />
             ) : (
               <div className="flex flex-col items-center justify-center rounded-xl border bg-card py-12 text-center text-muted-foreground">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mb-2">
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="mb-2"
+                >
                   <path d="M20 21v-8M4 21v-8m0 0a8 8 0 0116 0M9 9l6 6" />
                 </svg>
                 Upload an image to detect crop diseases
@@ -365,7 +480,9 @@ function DiseaseDetection() {
         </div>
 
         <div className="mt-12">
-          <h4 className="text-center text-2xl font-semibold">Common diseases</h4>
+          <h4 className="text-center text-2xl font-semibold">
+            Common diseases
+          </h4>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {mockDiseases.map((d) => (
               <DiseaseCard key={d.id} disease={d} />
@@ -379,7 +496,13 @@ function DiseaseDetection() {
 
 function ExpertFinder() {
   const [experts, setExperts] = useState<
-    { id: number; name: string; specialization: string; experience: string; contact: string }[]
+    {
+      id: number;
+      name: string;
+      specialization: string;
+      experience: string;
+      contact: string;
+    }[]
   >([]);
   const [loading, setLoading] = useState(false);
   const [specialization, setSpecialization] = useState("");
@@ -388,7 +511,10 @@ function ExpertFinder() {
   async function find() {
     setLoading(true);
     try {
-      const res = await ApiService.expertFinder.findExperts(specialization, location);
+      const res = await ApiService.expertFinder.findExperts(
+        specialization,
+        location,
+      );
       setExperts(res);
     } finally {
       setLoading(false);
@@ -398,13 +524,17 @@ function ExpertFinder() {
   return (
     <section id="expert-finder" className="bg-muted/30 py-16">
       <div className="container">
-        <h2 className="text-center text-3xl font-bold tracking-tight">Expert finder</h2>
+        <h2 className="text-center text-3xl font-bold tracking-tight">
+          Expert finder
+        </h2>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border bg-card p-6 shadow-sm">
             <h3 className="text-lg font-semibold">Find an expert</h3>
             <div className="mt-4 grid gap-4">
               <div>
-                <label className="mb-1 block text-sm font-medium">Specialization</label>
+                <label className="mb-1 block text-sm font-medium">
+                  Specialization
+                </label>
                 <select
                   className="w-full rounded-md border bg-background px-3 py-2 text-sm"
                   value={specialization}
@@ -418,7 +548,9 @@ function ExpertFinder() {
                 </select>
               </div>
               <div>
-                <label className="mb-1 block text-sm font-medium">Location (optional)</label>
+                <label className="mb-1 block text-sm font-medium">
+                  Location (optional)
+                </label>
                 <input
                   className="w-full rounded-md border bg-background px-3 py-2 text-sm"
                   placeholder="City or state"
@@ -426,7 +558,11 @@ function ExpertFinder() {
                   onChange={(e) => setLocation(e.target.value)}
                 />
               </div>
-              <Button className="w-full" onClick={find} disabled={!specialization}>
+              <Button
+                className="w-full"
+                onClick={find}
+                disabled={!specialization}
+              >
                 Find experts
               </Button>
             </div>
@@ -438,11 +574,20 @@ function ExpertFinder() {
             ) : experts.length ? (
               <div className="grid gap-6 sm:grid-cols-2">
                 {experts.map((e) => (
-                  <div key={e.id} className="rounded-xl border bg-card p-5 shadow-sm">
+                  <div
+                    key={e.id}
+                    className="rounded-xl border bg-card p-5 shadow-sm"
+                  >
                     <h5 className="text-base font-semibold">{e.name}</h5>
-                    <p className="text-sm text-muted-foreground">Specialization: {e.specialization}</p>
-                    <p className="text-sm text-muted-foreground">Experience: {e.experience}</p>
-                    <p className="text-sm">Contact: <span className="font-medium">{e.contact}</span></p>
+                    <p className="text-sm text-muted-foreground">
+                      Specialization: {e.specialization}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Experience: {e.experience}
+                    </p>
+                    <p className="text-sm">
+                      Contact: <span className="font-medium">{e.contact}</span>
+                    </p>
                     <Button variant="outline" size="sm" className="mt-3">
                       Contact expert
                     </Button>
@@ -451,7 +596,15 @@ function ExpertFinder() {
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center rounded-xl border bg-card py-12 text-center text-muted-foreground">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mb-2">
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="mb-2"
+                >
                   <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm-7 9a7 7 0 1114 0H5z" />
                 </svg>
                 Use the filters to find agricultural experts
@@ -479,7 +632,9 @@ function GovSchemes() {
   return (
     <section id="gov-schemes" className="py-16">
       <div className="container">
-        <h2 className="text-center text-3xl font-bold tracking-tight">Government schemes</h2>
+        <h2 className="text-center text-3xl font-bold tracking-tight">
+          Government schemes
+        </h2>
         <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-muted-foreground">
           Discover programs that can support your farming activities.
         </p>
@@ -536,12 +691,21 @@ function Profile() {
   return (
     <section id="profile" className="bg-muted/30 py-16">
       <div className="container">
-        <h2 className="text-center text-3xl font-bold tracking-tight">Your profile</h2>
+        <h2 className="text-center text-3xl font-bold tracking-tight">
+          Your profile
+        </h2>
         <div className="mx-auto mt-8 max-w-3xl overflow-hidden rounded-2xl border bg-card shadow-sm">
           <div className="bg-gradient-to-r from-primary to-emerald-500 px-6 py-8 text-primary-foreground">
             <div className="flex flex-col items-center text-center">
               <div className="grid size-28 place-content-center rounded-full border-4 border-white/70 bg-white text-primary">
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm-7 9a7 7 0 1114 0H5z"/></svg>
+                <svg
+                  width="42"
+                  height="42"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm-7 9a7 7 0 1114 0H5z" />
+                </svg>
               </div>
               <h3 className="mt-3 text-xl font-semibold">{user.name}</h3>
               <p className="opacity-90">Member since {user.joinDate}</p>
@@ -567,32 +731,80 @@ function Profile() {
               <div className="grid gap-4">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Full name</label>
-                    <input className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={edit.name} onChange={(e) => setEdit({ ...edit, name: e.target.value })} />
+                    <label className="mb-1 block text-sm font-medium">
+                      Full name
+                    </label>
+                    <input
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={edit.name}
+                      onChange={(e) =>
+                        setEdit({ ...edit, name: e.target.value })
+                      }
+                    />
                   </div>
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Email</label>
-                    <input className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={edit.email} onChange={(e) => setEdit({ ...edit, email: e.target.value })} />
+                    <label className="mb-1 block text-sm font-medium">
+                      Email
+                    </label>
+                    <input
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={edit.email}
+                      onChange={(e) =>
+                        setEdit({ ...edit, email: e.target.value })
+                      }
+                    />
                   </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Phone</label>
-                    <input className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={edit.phone} onChange={(e) => setEdit({ ...edit, phone: e.target.value })} />
+                    <label className="mb-1 block text-sm font-medium">
+                      Phone
+                    </label>
+                    <input
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={edit.phone}
+                      onChange={(e) =>
+                        setEdit({ ...edit, phone: e.target.value })
+                      }
+                    />
                   </div>
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Location</label>
-                    <input className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={edit.location} onChange={(e) => setEdit({ ...edit, location: e.target.value })} />
+                    <label className="mb-1 block text-sm font-medium">
+                      Location
+                    </label>
+                    <input
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={edit.location}
+                      onChange={(e) =>
+                        setEdit({ ...edit, location: e.target.value })
+                      }
+                    />
                   </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Farm size</label>
-                    <input className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={edit.farmSize} onChange={(e) => setEdit({ ...edit, farmSize: e.target.value })} />
+                    <label className="mb-1 block text-sm font-medium">
+                      Farm size
+                    </label>
+                    <input
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={edit.farmSize}
+                      onChange={(e) =>
+                        setEdit({ ...edit, farmSize: e.target.value })
+                      }
+                    />
                   </div>
                   <div>
-                    <label className="mb-1 block text-sm font-medium">Soil type</label>
-                    <select className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={edit.soilType} onChange={(e) => setEdit({ ...edit, soilType: e.target.value })}>
+                    <label className="mb-1 block text-sm font-medium">
+                      Soil type
+                    </label>
+                    <select
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={edit.soilType}
+                      onChange={(e) =>
+                        setEdit({ ...edit, soilType: e.target.value })
+                      }
+                    >
                       <option>Loamy</option>
                       <option>Clay</option>
                       <option>Sandy</option>
@@ -603,9 +815,15 @@ function Profile() {
                   </div>
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium">Main crops</label>
+                  <label className="mb-1 block text-sm font-medium">
+                    Main crops
+                  </label>
                   <div className="flex gap-2">
-                    <select className="w-full rounded-md border bg-background px-3 py-2 text-sm" value={newCrop} onChange={(e) => setNewCrop(e.target.value)}>
+                    <select
+                      className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                      value={newCrop}
+                      onChange={(e) => setNewCrop(e.target.value)}
+                    >
                       <option value="">Select a crop</option>
                       {availableCrops.map((c) => (
                         <option key={c} value={c}>
@@ -613,15 +831,26 @@ function Profile() {
                         </option>
                       ))}
                     </select>
-                    <Button variant="outline" onClick={addCrop} disabled={!newCrop}>
+                    <Button
+                      variant="outline"
+                      onClick={addCrop}
+                      disabled={!newCrop}
+                    >
                       Add
                     </Button>
                   </div>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {edit.mainCrops.map((c) => (
-                      <span key={c} className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-sm text-emerald-900">
+                      <span
+                        key={c}
+                        className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-sm text-emerald-900"
+                      >
                         {c}
-                        <button className="opacity-70 hover:opacity-100" onClick={() => removeCrop(c)} aria-label={`remove ${c}`}>
+                        <button
+                          className="opacity-70 hover:opacity-100"
+                          onClick={() => removeCrop(c)}
+                          aria-label={`remove ${c}`}
+                        >
                           ×
                         </button>
                       </span>
@@ -630,16 +859,33 @@ function Profile() {
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <label className="flex items-center gap-2 text-sm">
-                    <input type="checkbox" checked={edit.notifications} onChange={(e) => setEdit({ ...edit, notifications: e.target.checked })} />
+                    <input
+                      type="checkbox"
+                      checked={edit.notifications}
+                      onChange={(e) =>
+                        setEdit({ ...edit, notifications: e.target.checked })
+                      }
+                    />
                     Enable notifications
                   </label>
                   <label className="flex items-center gap-2 text-sm">
-                    <input type="checkbox" checked={edit.smsAlerts} onChange={(e) => setEdit({ ...edit, smsAlerts: e.target.checked })} />
+                    <input
+                      type="checkbox"
+                      checked={edit.smsAlerts}
+                      onChange={(e) =>
+                        setEdit({ ...edit, smsAlerts: e.target.checked })
+                      }
+                    />
                     SMS alerts
                   </label>
                 </div>
                 <div className="flex justify-end gap-2">
-                  <Button variant="outline" onClick={() => (setEdit(user), setIsEditing(false))}>Cancel</Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => (setEdit(user), setIsEditing(false))}
+                  >
+                    Cancel
+                  </Button>
                   <Button onClick={save}>Save changes</Button>
                 </div>
               </div>
@@ -661,18 +907,29 @@ function Profile() {
                   <div className="mb-1 text-sm font-medium">Main crops</div>
                   <div className="flex flex-wrap gap-2">
                     {user.mainCrops.map((c) => (
-                      <span key={c} className="rounded-full bg-emerald-100 px-3 py-1 text-sm text-emerald-900">
+                      <span
+                        key={c}
+                        className="rounded-full bg-emerald-100 px-3 py-1 text-sm text-emerald-900"
+                      >
                         {c}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
-                  <Field label="Notifications" value={user.notifications ? "Enabled" : "Disabled"} />
-                  <Field label="SMS alerts" value={user.smsAlerts ? "Enabled" : "Disabled"} />
+                  <Field
+                    label="Notifications"
+                    value={user.notifications ? "Enabled" : "Disabled"}
+                  />
+                  <Field
+                    label="SMS alerts"
+                    value={user.smsAlerts ? "Enabled" : "Disabled"}
+                  />
                 </div>
                 <div className="flex justify-end">
-                  <Button onClick={() => setIsEditing(true)}>Edit profile</Button>
+                  <Button onClick={() => setIsEditing(true)}>
+                    Edit profile
+                  </Button>
                 </div>
               </div>
             )}
@@ -687,7 +944,9 @@ function Field({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <div className="mb-1 text-sm font-medium">{label}</div>
-      <div className="rounded-md border bg-background px-3 py-2 text-sm">{value}</div>
+      <div className="rounded-md border bg-background px-3 py-2 text-sm">
+        {value}
+      </div>
     </div>
   );
 }
